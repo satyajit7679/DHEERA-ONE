@@ -92,7 +92,7 @@ const FixedDepositPage = () => {
                   tenure: "7 days to 10 years",
                   rate: "3.50% – 7.00%",
                 },
-                { bank: "SBI", tenure: "2 Years", rate: "7.00%" },
+                { bank: "UCO Bank	", tenure: "7 days to 10 years	", rate: "3.00% – 7.10%" },
                 { bank: "ICICI Bank", tenure: "3 Years", rate: "7.25%" },
                 { bank: "Axis Bank", tenure: "5 Years", rate: "7.50%" },
               ].map((fd, index) => (
