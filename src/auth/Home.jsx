@@ -11,13 +11,11 @@ import {
   Input,
 } from "@material-tailwind/react";
 import Chatbot from "../components/Chatbot";
-// import Banks from "../components/Banks";
 
 function Home() {
   const { register, handleSubmit, setValue } = useForm();
   const [maturityAmount, setMaturityAmount] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
-
 
   const Banks = [
     {
@@ -52,7 +50,6 @@ function Home() {
     },
   ];
 
-let bank = Banks; 
   const calculatorDataSubmit = (data) => {
     const { amount, interest_rate, tenures } = data;
     if (!amount || !interest_rate || !tenures) return;
@@ -135,59 +132,76 @@ let bank = Banks;
                       <Typography className="font-medium">
                         Choose Your Bank
                       </Typography>
-                      <div className="flex flex-wrap gap-2">
-                    
+                      <div className="flex flex-wrap gap-3 ">
+                        {Banks.slice(0, 4).map((bank) => (
                           <Button
                             key={bank.id}
                             size="sm"
                             color="blue-gray"
                             variant="outlined"
-                            onClick={() => {setValue("interest_rate", bank.interest_rate)
+                            onClick={() => {
+                              setValue("interest_rate", bank.interest_rate);
                             }}
                             type="button"
                           >
-                            <img src={bank.logo} alt="logo" className="size-10" />
-
+                            <img
+                              src={bank.logo}
+                              alt="logo"
+                              className="size-10"
+                            />
+                            {bank.name}
                           </Button>
-                        
-                        <div className=" display: flex justify-center">
-                        <Button size="sm" variant="outlined" onClick={() => setShowPopup(true)}>
+                        ))}
+
+                        <Button
+                          size="sm"
+                          variant="outlined"
+                          onClick={() => setShowPopup(true)}
+                        >
                           More
                         </Button>
-                              {/* Popup Modal */}
-                              {showPopup && (
-                                <div className="absolute top-12 left-0 bg-white p-4 shadow-lg rounded-lg border w-64">
-                                  <h3 className="text-lg font-semibold mb-2">Select a Bank</h3>
-                                  <div className="flex flex-wrap gap-2">
-                                    {Banks.map((bank) => (
-                                      <Button
-                                        key={bank.id}
-                                        size="sm"
-                                        variant="outlined"
-                                        onClick={() => {
-                                          setValue("interest_rate", bank.interest_rate);
-                                          setShowPopup(false); // Close Popup After Selection
-                                        }}
-                                        type="button"
-                                      >
-                                        <img src={bank.logo} alt="logo" className="size-6 inline-block mr-2" />
-                                        {bank.name}
-                                      </Button>
-                                    ))}
-                                  </div>
-                                  {/* Close Button */}
-                                  <Button
-                                    size="sm"
-                                    variant="ghost"
-                                    className="mt-3"
-                                    onClick={() => setShowPopup(false)}
-                                  >
-                                    Close
-                                  </Button>
-                                </div>
-                              )}
-                             </div>
-                        
+
+                        {/* Popup Modal */}
+                        {showPopup && (
+                          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+
+                          <div className=" bg-white p-5 shadow-lg rounded-lg border w-64">
+                            <h3 className="text-lg font-semibold mb-2">
+                              Select a Bank
+                            </h3>
+                            <div className="flex flex-wrap gap-2">
+                              {Banks.map((bank) => (
+                                <Button
+                                  key={bank.id}
+                                  size="sm"
+                                  variant="outlined"
+                                  onClick={() => {
+                                    setValue("interest_rate", bank.interest_rate);
+                                    setShowPopup(false); // Close Popup After Selection
+                                  }}
+                                  type="button"
+                                >
+                                  <img
+                                    src={bank.logo}
+                                    alt="logo"
+                                    className="size-6 inline-block mr-2"
+                                  />
+                                  {bank.name}
+                                </Button>
+                              ))}
+                            </div>
+                            {/* Close Button */}
+                            <Button
+                              size="sm"
+                              variant="ghost"
+                              className="mt-3"
+                              onClick={() => setShowPopup(false)}
+                            >
+                              Close
+                            </Button>
+                          </div>
+                        </div>
+                        )}
                       </div>
                     </div>
                   </CardBody>
