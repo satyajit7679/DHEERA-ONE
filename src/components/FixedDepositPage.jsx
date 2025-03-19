@@ -87,7 +87,11 @@ const FixedDepositPage = () => {
             </thead>
             <tbody>
               {[
-                { bank: "HDFC Bank", tenure: "1 Year", rate: "6.75%" },
+                {
+                  bank: "State Bank of India (SBI)",
+                  tenure: "7 days to 10 years",
+                  rate: "3.50% – 7.00%",
+                },
                 { bank: "SBI", tenure: "2 Years", rate: "7.00%" },
                 { bank: "ICICI Bank", tenure: "3 Years", rate: "7.25%" },
                 { bank: "Axis Bank", tenure: "5 Years", rate: "7.50%" },
