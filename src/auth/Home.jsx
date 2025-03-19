@@ -27,7 +27,7 @@ function Home() {
       id: 2,
       name: "SBI Bank",
       interest_rate: 7,
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/SBI-logo.svg/2560px-SBI-logo.svg.png",
+      logo: "https://upload.wikimedia.org/wikipedia/en/5/58/State_Bank_of_India_logo.svg",
     },
     {
       id: 3,
@@ -143,7 +143,7 @@ function Home() {
                             }
                             type="button"
                           >
-                            {bank.name}
+                            <img src={bank.logo} alt="sbi" className="size-10"/>
                           </Button>
                         ))}
                       </div>
