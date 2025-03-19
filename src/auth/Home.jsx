@@ -46,7 +46,7 @@ function Home() {
       id: 5,
       name: "PNB Bank",
       interest_rate: 7,
-      logo: "https://upload.wikimedia.org/wikipedia/commons/5/58/Punjab_National_Bank_Logo.svg",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/9/9f/Punjab_National_Bank.svg",
     },
   ];
 
@@ -131,7 +131,7 @@ function Home() {
                         Choose Your Bank
                       </Typography>
                       <div className="flex flex-wrap gap-2 justify-center md:justify-start">
-                        {Banks.slice(0, 3).map((bank) => (
+                        {Banks.slice(0, 4).map((bank) => (
                           <Button
                             key={bank.id}
                             size="sm"
