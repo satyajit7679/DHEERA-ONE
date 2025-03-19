@@ -2,7 +2,8 @@ import { useState } from "react";
 import { ChevronDown, CheckCircle } from "lucide-react";
 import Header from "./Header";
 import Footer from "./Footer";
-import BankFDTable from "./banktable";
+import BankFDTable from "./BankFDTable";
+
 const FixedDepositPage = () => {
   const [openFAQ, setOpenFAQ] = useState(null);
 
@@ -109,7 +110,7 @@ const FixedDepositPage = () => {
           </table>
         </div>
       </section> */}
-      <BankFDTable />
+<BankFDTable />
       {/* FAQ Section */}
       <section className="mt-8 max-w-4xl mx-auto">
         <h2 className="text-2xl font-semibold text-gray-800 mb-4">
@@ -128,8 +129,9 @@ const FixedDepositPage = () => {
                 {faq.question}
                 <ChevronDown
                   size={20}
-                  className={`transition-transform transform ${openFAQ === index ? "rotate-180" : ""
-                    }`}
+                  className={`transition-transform transform ${
+                    openFAQ === index ? "rotate-180" : ""
+                  }`}
                 />
               </button>
               {openFAQ === index && (
