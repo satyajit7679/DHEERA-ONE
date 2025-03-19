@@ -11,10 +11,13 @@ import {
   Input,
 } from "@material-tailwind/react";
 import Chatbot from "../components/Chatbot";
+// import Banks from "../components/Banks";
 
 function Home() {
   const { register, handleSubmit, setValue } = useForm();
   const [maturityAmount, setMaturityAmount] = useState(null);
+  const [showPopup, setShowPopup] = useState(false);
+
 
   const Banks = [
     {
@@ -27,7 +30,7 @@ function Home() {
       id: 2,
       name: "SBI Bank",
       interest_rate: 7,
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/SBI-logo.svg/2560px-SBI-logo.svg.png",
+      logo: "https://upload.wikimedia.org/wikipedia/en/5/58/State_Bank_of_India_logo.svg",
     },
     {
       id: 3,
@@ -49,6 +52,7 @@ function Home() {
     },
   ];
 
+let bank = Banks; 
   const calculatorDataSubmit = (data) => {
     const { amount, interest_rate, tenures } = data;
     if (!amount || !interest_rate || !tenures) return;
@@ -132,20 +136,58 @@ function Home() {
                         Choose Your Bank
                       </Typography>
                       <div className="flex flex-wrap gap-2">
-                        {Banks.map((bank) => (
+                    
                           <Button
                             key={bank.id}
                             size="sm"
                             color="blue-gray"
                             variant="outlined"
-                            onClick={() =>
-                              setValue("interest_rate", bank.interest_rate)
-                            }
+                            onClick={() => {setValue("interest_rate", bank.interest_rate)
+                            }}
                             type="button"
                           >
-                            {bank.name}
+                            <img src={bank.logo} alt="logo" className="size-10" />
+
                           </Button>
-                        ))}
+                        
+                        <div className=" display: flex justify-center">
+                        <Button size="sm" variant="outlined" onClick={() => setShowPopup(true)}>
+                          More
+                        </Button>
+                              {/* Popup Modal */}
+                              {showPopup && (
+                                <div className="absolute top-12 left-0 bg-white p-4 shadow-lg rounded-lg border w-64">
+                                  <h3 className="text-lg font-semibold mb-2">Select a Bank</h3>
+                                  <div className="flex flex-wrap gap-2">
+                                    {Banks.map((bank) => (
+                                      <Button
+                                        key={bank.id}
+                                        size="sm"
+                                        variant="outlined"
+                                        onClick={() => {
+                                          setValue("interest_rate", bank.interest_rate);
+                                          setShowPopup(false); // Close Popup After Selection
+                                        }}
+                                        type="button"
+                                      >
+                                        <img src={bank.logo} alt="logo" className="size-6 inline-block mr-2" />
+                                        {bank.name}
+                                      </Button>
+                                    ))}
+                                  </div>
+                                  {/* Close Button */}
+                                  <Button
+                                    size="sm"
+                                    variant="ghost"
+                                    className="mt-3"
+                                    onClick={() => setShowPopup(false)}
+                                  >
+                                    Close
+                                  </Button>
+                                </div>
+                              )}
+                             </div>
+                        
                       </div>
                     </div>
                   </CardBody>
