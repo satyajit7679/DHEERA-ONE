@@ -5,7 +5,7 @@ import { Card, Button,Checkbox } from "@material-tailwind/react";
 function Login() {
   console.log("data");
   const authorizedPerson = {
-    email: "surajit@gmail.com",
+    email: "atanu@gmail.com",
     password: "1234"
   };
   const navigate = useNavigate();
