@@ -5,8 +5,8 @@ import { Card, Button,Checkbox } from "@material-tailwind/react";
 function Login() {
   console.log("data");
   const authorizedPerson = {
-    email: "atanu@gmail.com",
-    password: "1234"
+    email: "surajit@gmail.com",
+    password: "1234",
   };
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm();

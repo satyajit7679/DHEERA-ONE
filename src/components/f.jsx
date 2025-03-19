@@ -7,30 +7,26 @@ import {
 
 function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-4 w-full mt-auto shadow-md">
+    <footer className="bg-gray-900 text-white py-4 w-full mt-auto">
       <div className="max-w-6xl mx-auto px-6">
         {/* Grid Layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center sm:text-left">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-center sm:text-left">
           {/* Company Info */}
           <div>
-            <h2 className="text-xl font-semibold mb-3 text-white">
-              Stock Calculator
-            </h2>
-            <p className="text-sm text-gray-400 leading-relaxed">
+            <h2 className="text-lg font-semibold mb-1">Stock Calculator</h2>
+            <p className="text-sm text-gray-400">
               Simplifying stock calculations for smart investments.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h2 className="text-xl font-semibold mb-3 text-white">
-              Quick Links
-            </h2>
-            <ul className="space-y-2">
+            <h2 className="text-lg font-semibold mb-1">Quick Links</h2>
+            <ul className="space-y-1">
               <li>
                 <a
                   href="/about"
-                  className="text-gray-400 hover:text-white transition text-base"
+                  className="text-gray-400 hover:text-white transition"
                 >
                   About Us
                 </a>
@@ -38,7 +34,7 @@ function Footer() {
               <li>
                 <a
                   href="/services"
-                  className="text-gray-400 hover:text-white transition text-base"
+                  className="text-gray-400 hover:text-white transition"
                 >
                   Services
                 </a>
@@ -46,7 +42,7 @@ function Footer() {
               <li>
                 <a
                   href="/faq"
-                  className="text-gray-400 hover:text-white transition text-base"
+                  className="text-gray-400 hover:text-white transition"
                 >
                   FAQ
                 </a>
@@ -54,7 +50,7 @@ function Footer() {
               <li>
                 <a
                   href="/contact"
-                  className="text-gray-400 hover:text-white transition text-base"
+                  className="text-gray-400 hover:text-white transition"
                 >
                   Contact
                 </a>
@@ -64,49 +60,47 @@ function Footer() {
 
           {/* Contact & Social Media */}
           <div>
-            <h2 className="text-xl font-semibold mb-3 text-white">
-              Connect With Us
-            </h2>
-            <p className="text-sm text-gray-400 mb-3">
+            <h2 className="text-lg font-semibold mb-1">Connect With Us</h2>
+            <p className="text-sm text-gray-400 mb-2">
               Email:{" "}
               <a
                 href="mailto:support@stockcalculator.com"
-                className="text-gray-300 hover:text-white underline"
+                className="underline"
               >
                 support@stockcalculator.com
               </a>
             </p>
-            <div className="flex justify-center sm:justify-start space-x-4">
+            <div className="flex justify-center sm:justify-start space-x-3">
               <a
                 href="#"
-                className="text-white bg-gray-700 p-2 rounded-full hover:bg-gray-600 transition"
+                className="text-gray-400 hover:text-white transition text-lg"
               >
-                <FaFacebookF size={18} />
+                <FaFacebookF />
               </a>
               <a
                 href="#"
-                className="text-white bg-gray-700 p-2 rounded-full hover:bg-gray-600 transition"
+                className="text-gray-400 hover:text-white transition text-lg"
               >
-                <FaTwitter size={18} />
+                <FaTwitter />
               </a>
               <a
                 href="#"
-                className="text-white bg-gray-700 p-2 rounded-full hover:bg-gray-600 transition"
+                className="text-gray-400 hover:text-white transition text-lg"
               >
-                <FaInstagram size={18} />
+                <FaInstagram />
               </a>
               <a
                 href="#"
-                className="text-white bg-gray-700 p-2 rounded-full hover:bg-gray-600 transition"
+                className="text-gray-400 hover:text-white transition text-lg"
               >
-                <FaLinkedinIn size={18} />
+                <FaLinkedinIn />
               </a>
             </div>
           </div>
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-gray-700 mt-6 pt-3 text-center text-sm text-gray-500">
+        <div className="border-t border-gray-700 mt-4 pt-3 text-center text-xs text-gray-500">
           © {new Date().getFullYear()} Stock Calculator. All rights reserved.
         </div>
       </div>

@@ -50,13 +50,16 @@ function Home() {
     },
   ];
 
+  let bank = Banks;
   const calculatorDataSubmit = (data) => {
     const { amount, interest_rate, tenures } = data;
     if (!amount || !interest_rate || !tenures) return;
 
     const interest =
       (Number(amount) * Number(interest_rate) * Number(tenures)) / 100;
-    setMaturityAmount(Number(amount) + interest);
+    const totalAmount = Number(amount) + interest;
+
+    setMaturityAmount(totalAmount);
   };
 
   return (
@@ -130,71 +133,71 @@ function Home() {
                       <Typography className="font-medium">
                         Choose Your Bank
                       </Typography>
-                      <div className="flex flex-wrap gap-2 justify-center md:justify-start">
-                        {Banks.slice(0, 3).map((bank) => (
+                      <div className="flex flex-wrap gap-2">
+                        <Button
+                          key={bank.id}
+                          size="sm"
+                          color="blue-gray"
+                          variant="outlined"
+                          onClick={() => {
+                            setValue("interest_rate", bank.interest_rate);
+                          }}
+                          type="button"
+                        >
+                          <img src={bank.logo} alt="logo" className="size-10" />
+                        </Button>
+
+                        <div className=" display: flex justify-center">
                           <Button
-                            key={bank.id}
                             size="sm"
                             variant="outlined"
-                            onClick={() =>
-                              setValue("interest_rate", bank.interest_rate)
-                            }
-                            type="button"
+                            onClick={() => setShowPopup(true)}
                           >
-                            <img src={bank.logo} alt="logo" className="h-10" />
+                            More
                           </Button>
-                        ))}
-                        <Button
-                          size="sm"
-                          variant="outlined"
-                          onClick={() => setShowPopup(true)}
-                        >
-                          More
-                        </Button>
-                      </div>
-
-                      {/* Popup Modal */}
-                      {showPopup && (
-                        <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-50">
-                          <div className="bg-white p-4 shadow-lg rounded-lg border w-80 max-w-sm">
-                            <h3 className="text-lg font-semibold mb-2 text-center">
-                              Select a Bank
-                            </h3>
-                            <div className="flex flex-wrap gap-2 justify-center">
-                              {Banks.map((bank) => (
-                                <Button
-                                  key={bank.id}
-                                  size="sm"
-                                  variant="outlined"
-                                  onClick={() => {
-                                    setValue(
-                                      "interest_rate",
-                                      bank.interest_rate
-                                    );
-                                    setShowPopup(false);
-                                  }}
-                                  type="button"
-                                >
-                                  <img
-                                    src={bank.logo}
-                                    alt="logo"
-                                    className="h-6 inline-block mr-2"
-                                  />
-                                  {bank.name}
-                                </Button>
-                              ))}
+                          {/* Popup Modal */}
+                          {showPopup && (
+                            <div className="absolute top-12 left-0 bg-white p-4 shadow-lg rounded-lg border w-64">
+                              <h3 className="text-lg font-semibold mb-2">
+                                Select a Bank
+                              </h3>
+                              <div className="flex flex-wrap gap-2">
+                                {Banks.map((bank) => (
+                                  <Button
+                                    key={bank.id}
+                                    size="sm"
+                                    variant="outlined"
+                                    onClick={() => {
+                                      setValue(
+                                        "interest_rate",
+                                        bank.interest_rate
+                                      );
+                                      setShowPopup(false); // Close Popup After Selection
+                                    }}
+                                    type="button"
+                                  >
+                                    <img
+                                      src={bank.logo}
+                                      alt="logo"
+                                      className="size-6 inline-block mr-2"
+                                    />
+                                    {bank.name}
+                                  </Button>
+                                ))}
+                              </div>
+                              {/* Close Button */}
+                              <Button
+                                size="sm"
+                                variant="ghost"
+                                className="mt-3"
+                                onClick={() => setShowPopup(false)}
+                              >
+                                Close
+                              </Button>
                             </div>
-                            <Button
-                              size="sm"
-                              variant="ghost"
-                              className="mt-3 w-full"
-                              onClick={() => setShowPopup(false)}
-                            >
-                              Close
-                            </Button>
-                          </div>
+                          )}
                         </div>
-                      )}
+                      </div>
                     </div>
                   </CardBody>
                   <CardFooter className="flex justify-center">
