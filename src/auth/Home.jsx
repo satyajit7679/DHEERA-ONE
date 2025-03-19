@@ -20,33 +20,53 @@ function Home() {
   const Banks = [
     {
       id: 1,
-      name: "HDFC Bank",
-      interest_rate: 10,
-      logo: "https://upload.wikimedia.org/wikipedia/commons/2/28/HDFC_Bank_Logo.svg",
+      name: "Jana Small Finance Bank",
+      interest_rate: 8.25,
+      logo: "https://www.janabank.com/images/media-kit/jana-logo/thumb/jana-bank-master-logo-thumb.png",
     },
     {
       id: 2,
-      name: "SBI Bank",
-      interest_rate: 7,
-      logo: "https://upload.wikimedia.org/wikipedia/en/5/58/State_Bank_of_India_logo.svg",
+      name: "Equitas Small Finance Bank",
+      interest_rate: 8.25,
+      logo: "https://upload.wikimedia.org/wikipedia/commons/5/55/Equitas-logo.png",
     },
     {
       id: 3,
+      name: "AU Bank",
+      interest_rate: 8.1,
+      logo: "https://upload.wikimedia.org/wikipedia/commons/2/28/Aubank.svg",
+    },
+    {
+      id: 4,
+      name: "PNB Bank",
+      interest_rate: 7,
+      logo: "https://upload.wikimedia.org/wikipedia/commons/9/9f/Punjab_National_Bank.svg",
+    },
+
+    {
+      id: 5,
+      name: "Axis Bank",
+      interest_rate: 7,
+      logo: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Axis_Bank_logo.svg",
+    },
+
+    {
+      id: 6,
       name: "Bandhan Bank",
       interest_rate: 8,
       logo: "https://upload.wikimedia.org/wikipedia/commons/a/a0/Bandhan_Bank_Svg_Logo.svg",
     },
     {
-      id: 4,
-      name: "Axis Bank",
+      id: 7,
+      name: "SBI Bank",
       interest_rate: 7,
-      logo: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Axis_Bank_logo.svg",
+      logo: "https://upload.wikimedia.org/wikipedia/en/5/58/State_Bank_of_India_logo.svg",
     },
     {
-      id: 5,
-      name: "PNB Bank",
-      interest_rate: 7,
-      logo: "https://upload.wikimedia.org/wikipedia/commons/9/9f/Punjab_National_Bank.svg",
+      id: 8,
+      name: "HDFC Bank",
+      interest_rate: 10,
+      logo: "https://upload.wikimedia.org/wikipedia/commons/2/28/HDFC_Bank_Logo.svg",
     },
   ];
 
