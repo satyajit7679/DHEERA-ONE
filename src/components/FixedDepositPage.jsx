@@ -3,7 +3,6 @@ import { ChevronDown, CheckCircle } from "lucide-react";
 import Header from "./Header";
 import Footer from "./Footer";
 import BankFDTable from "./banktable";
-
 const FixedDepositPage = () => {
   const [openFAQ, setOpenFAQ] = useState(null);
 
