@@ -21,7 +21,6 @@ const banksData = {
     { bank: "DBS Bank", highestRate: 7.5, oneYear: 7.0, threeYear: 6.5, fiveYear: 6.5 },
     { bank: "Federal Bank", highestRate: 7.5, oneYear: 7.0, threeYear: 7.1, fiveYear: 7.1 },
     { bank: "IDBI Bank", highestRate: 7.4, oneYear: 6.8, threeYear: 6.5, fiveYear: 6.5 },
-    { bank: "Jammu & Kashmir Bank", highestRate: 7.25, oneYear: 7.0, threeYear: 6.75, fiveYear: 6.5 },
     { bank: "Kotak Mahindra Bank", highestRate: 7.4, oneYear: 7.1, threeYear: 7.0, fiveYear: 6.2 },
     { bank: "RBL Bank", highestRate: 8.0, oneYear: 7.5, threeYear: 7.5, fiveYear: 7.1 },
     { bank: "SBM Bank India", highestRate: 8.25, oneYear: 7.05, threeYear: 7.3, fiveYear: 7.75 },
