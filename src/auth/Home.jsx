@@ -16,6 +16,8 @@ function Home() {
   const { register, handleSubmit, setValue } = useForm();
   const [maturityAmount, setMaturityAmount] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+
 
   const Banks = [
     {
@@ -23,24 +25,28 @@ function Home() {
       name: "Jana Small Finance Bank",
       interest_rate: 8.25,
       logo: "https://www.janabank.com/images/media-kit/jana-logo/thumb/jana-bank-master-logo-thumb.png",
+      category: "small finance",
     },
     {
       id: 2,
       name: "Equitas Small Finance Bank",
       interest_rate: 8.25,
       logo: "https://upload.wikimedia.org/wikipedia/commons/5/55/Equitas-logo.png",
+      category: "small finance",
     },
     {
       id: 3,
       name: "AU Bank",
       interest_rate: 8.1,
       logo: "https://upload.wikimedia.org/wikipedia/commons/2/28/Aubank.svg",
+      category: "small finance",
     },
     {
       id: 4,
       name: "PNB Bank",
       interest_rate: 7,
       logo: "https://upload.wikimedia.org/wikipedia/commons/9/9f/Punjab_National_Bank.svg",
+      category: "private",
     },
 
     {
@@ -48,6 +54,7 @@ function Home() {
       name: "Axis Bank",
       interest_rate: 7,
       logo: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Axis_Bank_logo.svg",
+      category: "private",
     },
 
     {
@@ -55,18 +62,21 @@ function Home() {
       name: "Bandhan Bank",
       interest_rate: 8,
       logo: "https://upload.wikimedia.org/wikipedia/commons/a/a0/Bandhan_Bank_Svg_Logo.svg",
+      category :"private",
     },
     {
       id: 7,
       name: "SBI Bank",
       interest_rate: 7,
       logo: "https://upload.wikimedia.org/wikipedia/en/5/58/State_Bank_of_India_logo.svg",
+      category: "public",
     },
     {
       id: 8,
       name: "HDFC Bank",
       interest_rate: 10,
       logo: "https://upload.wikimedia.org/wikipedia/commons/2/28/HDFC_Bank_Logo.svg",
+      category: "private",
     },
   ];
 
@@ -180,35 +190,81 @@ function Home() {
                             <h3 className="text-lg font-semibold mb-2 text-center">
                               Select a Bank
                             </h3>
-                            <div className="flex flex-wrap gap-2 justify-center">
-                              {Banks.map((bank) => (
+
+                            {!selectedCategory ? (
+                              <div className="flex flex-wrap gap-2 justify-center">
                                 <Button
-                                  key={bank.id}
                                   size="sm"
                                   variant="outlined"
-                                  onClick={() => {
-                                    setValue(
-                                      "interest_rate",
-                                      bank.interest_rate
-                                    );
-                                    setShowPopup(false);
-                                  }}
-                                  type="button"
+                                  onClick={() => setSelectedCategory("public")}
                                 >
-                                  <img
-                                    src={bank.logo}
-                                    alt="logo"
-                                    className="h-6 inline-block mr-2"
-                                  />
-                                  {bank.name}
+                                  Public
                                 </Button>
-                              ))}
-                            </div>
+                                <Button
+                                  size="sm"
+                                  variant="outlined"
+                                  onClick={() => setSelectedCategory("private")}
+                                >
+                                  Private
+                                </Button>
+                                <Button
+                                  size="sm"
+                                  variant="outlined"
+                                  onClick={() =>
+                                    setSelectedCategory("small finance")
+                                  }
+                                >
+                                  Small Finance
+                                </Button>
+                              </div>
+                            ) : (
+                              <div>
+                                <div className="flex flex-wrap gap-2 justify-center">
+                                  {Banks.filter(
+                                    (bank) => bank.category === selectedCategory
+                                  ).map((bank) => (
+                                    <Button
+                                      key={bank.id}
+                                      size="sm"
+                                      variant="outlined"
+                                      onClick={() => {
+                                        setValue(
+                                          "interest_rate",
+                                          bank.interest_rate
+                                        );
+                                        setShowPopup(false);
+                                        setSelectedCategory(null);
+                                      }}
+                                      type="button"
+                                    >
+                                      <img
+                                        src={bank.logo}
+                                        alt="logo"
+                                        className="h-6 inline-block mr-2"
+                                      />
+                                      {bank.name}
+                                    </Button>
+                                  ))}
+                                </div>
+                                <Button
+                                  size="sm"
+                                  variant="ghost"
+                                  className="mt-3 w-full"
+                                  onClick={() => setSelectedCategory(null)}
+                                >
+                                  Back
+                                </Button>
+                              </div>
+                            )}
+
                             <Button
                               size="sm"
                               variant="ghost"
                               className="mt-3 w-full"
-                              onClick={() => setShowPopup(false)}
+                              onClick={() => {
+                                setShowPopup(false);
+                                setSelectedCategory(null);
+                              }}
                             >
                               Close
                             </Button>

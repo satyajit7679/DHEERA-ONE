@@ -193,7 +193,7 @@ const banksData = {
 
 const FDTable = ({ title, data }) => {
   return (
-    <div className="bg-white p-4 rounded-xl shadow-md">
+    <div className="bg-white p-4 rounded-xl shadow-md mt-20">
       <h2 className="text-xl font-bold mb-3">{title}</h2>
       <table className="w-full border border-gray-200">
         <thead>
