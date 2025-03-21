@@ -99,33 +99,65 @@ function Home() {
       category: "public",
     },
     // Private Sector Banks
-    {
-      id: 11,
-      name: "Axis Bank",
-      interest_rate: 7.25,
-      logo: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Axis_Bank_logo.svg",
-      rates: [6.7, 7.1, 7],
-      category: "private",
+     {
+        id: 11,
+        name: "Axis Bank",
+        interest_rate: 7.25,
+        logo: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Axis_Bank_logo.svg",
+        rates: [6.7, 7.1, 7],
+        category: "private"
     },
     {
-      id: 12,
-      name: "HDFC Bank",
-      interest_rate: 7.4,
-      logo: "https://upload.wikimedia.org/wikipedia/commons/2/28/HDFC_Bank_Logo.svg",
-      rates: [6.6, 7, 7],
-      category: "private",
+        id: 12,
+        name: "HDFC Bank",
+        interest_rate: 7.4,
+        logo: "https://upload.wikimedia.org/wikipedia/commons/2/28/HDFC_Bank_Logo.svg",
+        rates: [6.6, 7, 7],
+        category: "private"
     },
     {
-      id: 13,
-      name: "ICICI Bank",
-      interest_rate: 7.25,
-      logo: "https://upload.wikimedia.org/wikipedia/commons/1/1d/ICICI_Bank_Logo.svg",
-      rates: [6.7, 7, 7],
-      category: "private",
+        id: 13,
+        name: "ICICI Bank",
+        interest_rate: 7.25,
+        logo: "https://upload.wikimedia.org/wikipedia/commons/1/1d/ICICI_Bank_Logo.svg",
+        rates: [6.7, 7, 7],
+        category: "private"
+    },
+    {
+        id: 14,
+        name: "IndusInd Bank",
+        interest_rate: 7.75,
+        logo: "https://upload.wikimedia.org/wikipedia/commons/3/31/IndusInd_Bank.svg",
+        rates: [7.75, 7.25, 7.25],
+        category: "private"
+    },
+    {
+        id: 15,
+        name: "DBS Bank",
+        interest_rate: 7.5,
+        logo: "https://upload.wikimedia.org/wikipedia/commons/6/6e/DBS_Bank_logo.svg",
+        rates: [7, 6.5, 6.5],
+        category: "private"
+    },
+    {
+        id: 16,
+        name: "Federal Bank",
+        interest_rate: 7.5,
+        logo: "https://upload.wikimedia.org/wikipedia/commons/2/27/Federal_Bank_logo.svg",
+        rates: [7, 7.1, 7.1],
+        category: "private"
+    },
+    {
+        id: 17,
+        name: "IDBI Bank",
+        interest_rate: 7.4,
+        logo: "https://upload.wikimedia.org/wikipedia/commons/e/e4/IDBI_Bank_logo.svg",
+        rates: [6.8, 6.5, 6.5],
+        category: "private"
     },
     // Small Finance Banks
     {
-      id: 14,
+      id: 18,
       name: "AU Small Finance Bank",
       interest_rate: 8.1,
       logo: "https://upload.wikimedia.org/wikipedia/commons/e/e9/AU_Small_Finance_Bank_Logo.svg",
@@ -133,7 +165,7 @@ function Home() {
       category: "small_finance",
     },
     {
-      id: 15,
+      id: 19,
       name: "Equitas Small Finance Bank",
       interest_rate: 8.25,
       logo: "https://upload.wikimedia.org/wikipedia/commons/5/5c/Equitas_Bank_logo.svg",
@@ -141,7 +173,7 @@ function Home() {
       category: "small_finance",
     },
     {
-      id: 16,
+      id: 20,
       name: "Jana Small Finance Bank",
       interest_rate: 8.25,
       logo: "https://upload.wikimedia.org/wikipedia/commons/6/65/Jana_Small_Finance_Bank_logo.svg",
