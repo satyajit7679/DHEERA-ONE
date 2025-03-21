@@ -11,74 +11,229 @@ import {
   Input,
 } from "@material-tailwind/react";
 import Chatbot from "../components/Chatbot";
+import ReactApexChart from "react-apexcharts"; // Make sure to import the chart component
 
 function Home() {
-  const { register, handleSubmit, setValue } = useForm();
-  const [maturityAmount, setMaturityAmount] = useState(null);
-  const [showPopup, setShowPopup] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
 
-
   const Banks = [
+    // Public Sector Banks
     {
       id: 1,
-      name: "Jana Small Finance Bank",
-      interest_rate: 8.25,
-      logo: "https://www.janabank.com/images/media-kit/jana-logo/thumb/jana-bank-master-logo-thumb.png",
-      category: "small finance",
+      name: "State Bank of India",
+      interest_rate: 7.25,
+      logo: "https://upload.wikimedia.org/wikipedia/en/5/58/State_Bank_of_India_logo.svg",
+      rates: [6.8, 6.75, 6.5],
+      category: "public",
     },
     {
       id: 2,
-      name: "Equitas Small Finance Bank",
-      interest_rate: 8.25,
-      logo: "https://upload.wikimedia.org/wikipedia/commons/5/55/Equitas-logo.png",
-      category: "small finance",
+      name: "Punjab National Bank",
+      interest_rate: 7.25,
+      logo: "https://upload.wikimedia.org/wikipedia/commons/9/9f/Punjab_National_Bank.svg",
+      rates: [6.8, 7, 6.5],
+      category: "public",
     },
     {
       id: 3,
-      name: "AU Bank",
-      interest_rate: 8.1,
-      logo: "https://upload.wikimedia.org/wikipedia/commons/2/28/Aubank.svg",
-      category: "small finance",
+      name: "Bank of Baroda",
+      interest_rate: 7.3,
+      logo: "https://upload.wikimedia.org/wikipedia/commons/c/c7/Bank_of_Baroda_logo.svg",
+      rates: [6.85, 7.15, 6.8],
+      category: "public",
     },
     {
       id: 4,
-      name: "PNB Bank",
-      interest_rate: 7,
-      logo: "https://upload.wikimedia.org/wikipedia/commons/9/9f/Punjab_National_Bank.svg",
-      category: "private",
+      name: "Bank of India",
+      interest_rate: 7.3,
+      logo: "https://upload.wikimedia.org/wikipedia/commons/4/4b/Bank_of_India.svg",
+      rates: [6.8, 6.5, 6],
+      category: "public",
     },
-
     {
       id: 5,
-      name: "Axis Bank",
-      interest_rate: 7,
-      logo: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Axis_Bank_logo.svg",
-      category: "private",
+      name: "Canara Bank",
+      interest_rate: 7.4,
+      logo: "https://upload.wikimedia.org/wikipedia/commons/0/05/Canara_Bank_logo.svg",
+      rates: [6.85, 7.4, 6.7],
+      category: "public",
     },
-
     {
       id: 6,
-      name: "Bandhan Bank",
-      interest_rate: 8,
-      logo: "https://upload.wikimedia.org/wikipedia/commons/a/a0/Bandhan_Bank_Svg_Logo.svg",
-      category :"private",
+      name: "Central Bank of India",
+      interest_rate: 7.5,
+      logo: "https://upload.wikimedia.org/wikipedia/commons/4/49/Central_Bank_of_India.svg",
+      rates: [6.85, 7, 6.75],
+      category: "public",
     },
     {
       id: 7,
-      name: "SBI Bank",
-      interest_rate: 7,
-      logo: "https://upload.wikimedia.org/wikipedia/en/5/58/State_Bank_of_India_logo.svg",
+      name: "Indian Bank",
+      interest_rate: 7.3,
+      logo: "https://upload.wikimedia.org/wikipedia/commons/1/1d/Indian_Bank_logo.svg",
+      rates: [6.1, 6.25, 6.25],
       category: "public",
     },
     {
       id: 8,
-      name: "HDFC Bank",
-      interest_rate: 10,
-      logo: "https://upload.wikimedia.org/wikipedia/commons/2/28/HDFC_Bank_Logo.svg",
+      name: "Indian Overseas Bank",
+      interest_rate: 7.3,
+      logo: "https://upload.wikimedia.org/wikipedia/commons/6/69/Indian_Overseas_Bank.svg",
+      rates: [7.1, 6.5, 6.5],
+      category: "public",
+    },
+    {
+      id: 9,
+      name: "UCO Bank",
+      interest_rate: 7.3,
+      logo: "https://upload.wikimedia.org/wikipedia/commons/7/7d/UCO_Bank_logo.svg",
+      rates: [6.5, 6.3, 6.2],
+      category: "public",
+    },
+    {
+      id: 10,
+      name: "Union Bank of India",
+      interest_rate: 7.3,
+      logo: "https://upload.wikimedia.org/wikipedia/commons/b/b7/Union_Bank_of_India_Logo.svg",
+      rates: [6.8, 6.7, 6.5],
+      category: "public",
+    },
+    // Private Sector Banks
+    {
+      id: 11,
+      name: "Axis Bank",
+      interest_rate: 7.25,
+      logo: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Axis_Bank_logo.svg",
+      rates: [6.7, 7.1, 7],
       category: "private",
     },
+    {
+      id: 12,
+      name: "HDFC Bank",
+      interest_rate: 7.4,
+      logo: "https://upload.wikimedia.org/wikipedia/commons/2/28/HDFC_Bank_Logo.svg",
+      rates: [6.6, 7, 7],
+      category: "private",
+    },
+    {
+      id: 13,
+      name: "ICICI Bank",
+      interest_rate: 7.25,
+      logo: "https://upload.wikimedia.org/wikipedia/commons/1/1d/ICICI_Bank_Logo.svg",
+      rates: [6.7, 7, 7],
+      category: "private",
+    },
+    // Small Finance Banks
+    {
+      id: 14,
+      name: "AU Small Finance Bank",
+      interest_rate: 8.1,
+      logo: "https://upload.wikimedia.org/wikipedia/commons/e/e9/AU_Small_Finance_Bank_Logo.svg",
+      rates: [7.25, 7.5, 7.25],
+      category: "small_finance",
+    },
+    {
+      id: 15,
+      name: "Equitas Small Finance Bank",
+      interest_rate: 8.25,
+      logo: "https://upload.wikimedia.org/wikipedia/commons/5/5c/Equitas_Bank_logo.svg",
+      rates: [8.1, 8, 7.25],
+      category: "small_finance",
+    },
+    {
+      id: 16,
+      name: "Jana Small Finance Bank",
+      interest_rate: 8.25,
+      logo: "https://upload.wikimedia.org/wikipedia/commons/6/65/Jana_Small_Finance_Bank_logo.svg",
+      rates: [8.25, 8.25, 8.2],
+      category: "small_finance",
+    },
   ];
+
+  const [rates, setRates] = useState(Banks[0]?.rates);
+  const [state, setState] = useState({
+    series: [
+      {
+        name: "Stock Calculator DHEERAONE",
+        data: [
+          { x: new Date("2025-01-01").getTime(), y: 5000 },
+          { x: new Date("2025-02-01").getTime(), y: 3000 },
+          { x: new Date("2025-03-01").getTime(), y: 4500 },
+          { x: new Date("2025-04-01").getTime(), y: 6000 },
+          { x: new Date("2025-05-01").getTime(), y: 7000 },
+        ],
+      },
+    ],
+    options: {
+      chart: {
+        type: "area",
+        stacked: false,
+        height: 350,
+        zoom: {
+          type: "x",
+          enabled: true,
+          autoScaleYaxis: true,
+        },
+        toolbar: {
+          autoSelected: "zoom",
+        },
+      },
+      dataLabels: {
+        enabled: false,
+      },
+      markers: {
+        size: 0,
+      },
+      title: {
+        text: "Stock Price Movement",
+        align: "left",
+      },
+      fill: {
+        type: "gradient",
+        gradient: {
+          shadeIntensity: 1,
+          inverseColors: false,
+          opacityFrom: 0.5,
+          opacityTo: 0,
+          stops: [0, 90, 100],
+        },
+      },
+      yaxis: {
+        labels: {
+          formatter: function (val) {
+            return val.toFixed(0);
+          },
+        },
+        title: {
+          text: "Price",
+        },
+      },
+      xaxis: {
+        type: "datetime",
+        tickAmount: 5, // Ensures only a few key points are shown
+        labels: {
+          format: "MMM yyyy", // Shows month and year
+          datetimeFormatter: {
+            month: "MMM yyyy", // Formats as 'Jan 2025'
+          },
+        },
+      },
+      tooltip: {
+        shared: false,
+        x: {
+          format: "MMM yyyy", // Tooltip shows only month & year
+        },
+        y: {
+          formatter: function (val) {
+            return val.toFixed(0);
+          },
+        },
+      },
+    },
+  });
+  const { register, handleSubmit, setValue } = useForm();
+  const [maturityAmount, setMaturityAmount] = useState(null);
+  const [showPopup, setShowPopup] = useState(false);
 
   const calculatorDataSubmit = (data) => {
     const { amount, interest_rate, tenures } = data;
@@ -99,6 +254,16 @@ function Home() {
             <div className="flex justify-center">
               <Card className="w-full max-w-md shadow-lg">
                 <CardBody>
+                  <div id="chart">
+                    {/* Render the ApexChart here */}
+                    <ReactApexChart
+                      options={state.options}
+                      series={state.series}
+                      type="area"
+                      height={350}
+                    />
+                  </div>
+                  <div id="html-dist"></div>
                   <Typography variant="h5" color="blue-gray" className="mb-2">
                     UI/UX Review Check
                   </Typography>
@@ -166,9 +331,10 @@ function Home() {
                             key={bank.id}
                             size="sm"
                             variant="outlined"
-                            onClick={() =>
-                              setValue("interest_rate", bank.interest_rate)
-                            }
+                            onClick={() => {
+                              setRates(Banks?.rates);
+                              setValue("interest_rate", bank.interest_rate);
+                            }}
                             type="button"
                           >
                             <img src={bank.logo} alt="logo" className="h-10" />
@@ -182,7 +348,6 @@ function Home() {
                           More
                         </Button>
                       </div>
-
                       {/* Popup Modal */}
                       {showPopup && (
                         <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-50">
@@ -211,7 +376,7 @@ function Home() {
                                   size="sm"
                                   variant="outlined"
                                   onClick={() =>
-                                    setSelectedCategory("small finance")
+                                    setSelectedCategory("small_finance")
                                   }
                                 >
                                   Small Finance
