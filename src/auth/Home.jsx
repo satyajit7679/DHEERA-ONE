@@ -182,14 +182,6 @@ function Home() {
     },
     {
       id: 21,
-      name: "Utkarsh Small Finance Bank",
-      interest_rate: 9.00,
-      logo: "https://www.utkarsh.bank/images/logo.svg",
-      rates: [9.00, 7.00, 8.00],
-      category: "small_finance",
-    },
-    {
-      id: 22,
       name: "Ujjivan Small Finance Bank",
       interest_rate: 8.25,
       logo: "https://upload.wikimedia.org/wikipedia/en/4/44/This_is_the_Ujjivan_Small_Finance_Bank_Official_Logo.svg",
